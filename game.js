@@ -20,6 +20,7 @@ function nextSeq() {
   var nextBtnColor = btnColors[randNum];
   $("#"+nextBtnColor).fadeOut(100).fadeIn(100);
   playSound(nextBtnColor);
+  userPattern = [];
   gamePattern.push(nextBtnColor);
   level++;
   $("h1").text("Level " + level);
@@ -29,7 +30,6 @@ function checkAnswer(currentLevel){
   if (userPattern[currentLevel] === gamePattern[currentLevel]) {
     console.log("success");
     if (gamePattern.length === userPattern.length) {
-      userPattern = [];
       setTimeout(nextSeq, 1000);
     }
   }else {
